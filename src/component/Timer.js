@@ -6,6 +6,7 @@ class Timer extends React.Component {
         super(props);
         this.timerStart = this.timerStart.bind(this);
         this.timerStop = this.timerStop.bind(this);
+        this.timerReset = this.timerReset.bind(this);
         this.state = {
             minute: 20,
             seconds: 0,
@@ -47,13 +48,24 @@ class Timer extends React.Component {
         })
         clearInterval(this.timer);
     }
+    timerReset(){
+        this.setState({
+            started: false,
+            seconds: 0,
+            minute: 20,
+        })
+        clearInterval(this.timer);
+    }
     render() {
         let padSeconds = this.state.seconds.toString().padStart(2,'0')
         let padMinutes = this.state.minute.toString().padStart(2,'0')
         return (
             <div className="timer">
-                <button onClick={this.timerStart} className='start'>start</button>
-                <button onClick={this.timerStop} className='stop'>stop</button>
+                <div className="timer-buttons">                
+                    <button onClick={this.timerStart} className='timer-button'>start</button>
+                    <button onClick={this.timerStop} className='timer-button'>stop</button>
+                    <button onClick={this.timerReset} className='timer-button'>reset</button>
+                </div>
                 <p id="counter">{padMinutes}:{padSeconds}</p>
             </div>
         )
