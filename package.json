@@ -1,6 +1,7 @@
 {
   "name": "pomodoro_timer",
   "version": "0.1.0",
+  "homepage": "https://jakebareng.github.io/pomodoro_timer/",
   "repository": {
     "url": "git+https://github.com/{JakeBareng}/{pomodoro_timer}.git"
   },
